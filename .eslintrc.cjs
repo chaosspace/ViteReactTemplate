@@ -5,8 +5,9 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended'
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['.eslintrc.cjs', 'dist', 'node_modules', 'examples'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
@@ -14,5 +15,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    "no-unreachable": "error",
   },
 }
