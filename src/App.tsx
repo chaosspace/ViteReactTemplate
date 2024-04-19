@@ -1,9 +1,13 @@
-import { a } from "@/routes";
-
-console.log(a);
+import router from "./routes";
+import { RouterProvider } from "react-router-dom";
 
 function App() {
-	return <>App</>;
+	return (
+		<>
+			App
+			<RouterProvider router={router} />
+		</>
+	);
 }
 
 export default App;
