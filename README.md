@@ -17,6 +17,12 @@ start up the project
   pnpm dev
 ```
 
+### use Tailwindcss
+```
+  pnpm add -D tailwindcss postcss autoprefixer
+  pnpm exec tailwindcss init -p
+```
+
 ## Expanding the ESLint and Prettier configuration
 
 automatically check and prettier committed code.
