@@ -22,6 +22,7 @@ start up the project
   pnpm add -D tailwindcss postcss autoprefixer
   pnpm exec tailwindcss init -p
 ```
+
 config your tailwindcss prettier plugin
 ```
   // terminal
