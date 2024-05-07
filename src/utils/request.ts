@@ -12,7 +12,7 @@ ins.interceptors.request.use((config) => {
 });
 
 ins.interceptors.response.use((res) => {
-	if (!`${res.status}`.startsWith("2")) {
+	if (`${res.status}`.startsWith("5")) {
 		toast({ type: "error", msg: "请求出错了，待会再试试吧" });
 	}
 	return res;
