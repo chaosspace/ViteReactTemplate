@@ -1,4 +1,5 @@
 import { cn } from "@/utils";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
 	return (
@@ -18,6 +19,9 @@ export const Home = () => {
 						src/pages/Home.tsx
 					</code>
 				</p>
+				<div className="mt-4 rounded bg-zinc-500 p-1">
+					<Link to="/test">go to test page</Link>
+				</div>
 			</main>
 			<div className={`${cn({ ["rounded"]: false })}`}></div>
 		</>
