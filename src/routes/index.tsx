@@ -1,11 +1,18 @@
-import { Home } from "@/pages";
+import { Home, NotFound, Test } from "@/pages";
 import { createBrowserRouter } from "react-router-dom";
 import { RouteObject } from "react-router-dom";
 
 const routes: RouteObject[] = [
 	{
-		path: "/",
-		element: <Home />
+		errorElement: <NotFound />,
+		children: [
+			{
+				path: "/",
+				element: <Home />
+			},
+
+			{ path: "/test", element: <Test /> }
+		]
 	}
 ];
 
