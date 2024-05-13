@@ -14,13 +14,16 @@ export default defineConfig(({ mode }) => {
 			resolve: {
 				alias: [{ find: "@", replacement: resolve(__dirname, "./src") }]
 			},
-
 			server: {
 				open: true,
 				proxy: {
 					[env.VITE_API_BASE_URL]: {
 						target: env.VITE_REQUEST,
 						rewrite: (path: string) => path.replace(/^\/api/, "")
+					},
+					"/ssetest": {
+						target: "localhost:5001",
+						changeOrigin: true
 					}
 				}
 			}
