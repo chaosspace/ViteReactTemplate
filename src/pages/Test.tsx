@@ -1,9 +1,11 @@
-import { useScrollProgress } from "@/hooks";
+import { useLongPress, useScrollProgress } from "@/hooks";
 import { useRef } from "react";
 
 export const Test = () => {
 	const ref = useRef<HTMLDivElement>(null);
+	const pressRef = useRef<HTMLDivElement>(null);
 	const progress = useScrollProgress(ref);
+	const [isPressed] = useLongPress(pressRef);
 
 	return (
 		<div>
@@ -14,6 +16,7 @@ export const Test = () => {
 				</div>
 			</div>
 			{progress}
+			<div ref={pressRef}>press: {isPressed && "true"}</div>
 		</div>
 	);
 };

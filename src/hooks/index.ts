@@ -1,5 +1,5 @@
 export * from "./toast";
-import { MutableRefObject, useEffect, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 
 type BasicTarget<T> = T | null | undefined;
 type Target =
@@ -41,4 +41,32 @@ export const useScrollProgress = <T extends HTMLElement>(
 	useEventListener("scroll", handler, target);
 
 	return progress;
+};
+
+export const useLongPress = <T extends HTMLElement>(
+	target: MutableRefObject<T | null | undefined>,
+	delay: number = 1000
+) => {
+	const [isPressed, setIsPressed] = useState(false);
+	const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+
+	const handler = () => {
+		timeoutRef.current = setTimeout(() => {
+			setIsPressed(true);
+		}, delay);
+	};
+
+	const upHandler = () => {
+		if (timeoutRef.current) {
+			clearTimeout(timeoutRef.current);
+			setIsPressed(false);
+		}
+	};
+
+	useEventListener("mousedown", handler, target);
+
+	useEventListener("mouseout", upHandler, target);
+	useEventListener("mouseup", upHandler, target);
+
+	return [isPressed];
 };
