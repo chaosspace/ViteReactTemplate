@@ -2,8 +2,10 @@ export * from "./toast";
 export * from "./intl";
 import {
 	MutableRefObject,
+	RefObject,
 	useCallback,
 	useEffect,
+	useMemo,
 	useRef,
 	useState
 } from "react";
@@ -34,20 +36,50 @@ const useEventListener = (
 	}, [eventName, handler, target]);
 };
 
+interface UseScrollProgressOptions {
+	direction: "x" | "y";
+}
 export const useScrollProgress = <T extends HTMLElement>(
-	target?: MutableRefObject<T | null | undefined>
+	target: MutableRefObject<T | null | undefined>,
+	options: UseScrollProgressOptions = { direction: "y" }
 ) => {
+	const { direction } = options;
 	const [progress, setProgress] = useState(0);
 
 	const handler = () => {
 		const domElement = target?.current ?? document.body;
-		const offset = domElement.scrollHeight - domElement.clientHeight;
-		setProgress(domElement.scrollTop / offset);
+
+		if (direction === "x") {
+			const offset = domElement.scrollWidth - domElement.clientWidth;
+			setProgress(+(domElement.scrollLeft / offset).toFixed(2));
+		} else {
+			const offset = domElement.scrollHeight - domElement.clientHeight;
+			setProgress(+(domElement.scrollTop / offset).toFixed(2));
+		}
 	};
 
 	useEventListener("scroll", handler, target);
 
 	return progress;
+};
+
+export const useScrolledIndex = <T extends HTMLElement>(
+	target: RefObject<T | null | undefined>
+) => {
+	const clientWidth = useMemo(
+		() => target.current?.firstElementChild?.clientWidth ?? Infinity,
+		[target.current]
+	);
+	const [index, setIndex] = useState(0);
+
+	const handler = () => {
+		if (target.current) {
+			setIndex(Math.round(target.current.scrollLeft / clientWidth));
+		}
+	};
+	useEventListener("scrollend", handler, target);
+
+	return [index];
 };
 
 export const useLongPress = <T extends HTMLElement>(

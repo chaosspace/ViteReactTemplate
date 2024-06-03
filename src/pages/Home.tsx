@@ -1,5 +1,7 @@
 import { cn } from "@/utils";
 import { Link } from "react-router-dom";
+import { IntlLink } from "@/hooks";
+
 
 export const Home = () => {
 	return (
@@ -18,6 +20,7 @@ export const Home = () => {
 					<code className="rounded bg-zinc-300 p-1 font-mono font-bold">
 						src/pages/Home.tsx
 					</code>
+					<IntlLink target="/intl">to intl</IntlLink>
 				</p>
 				<div className="mt-4 rounded bg-zinc-500 p-1">
 					<Link to="/test">go to test page</Link>

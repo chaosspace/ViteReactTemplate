@@ -57,3 +57,7 @@ code {
 	font-weight: 700;
 	border-radius: 4px;
 }
+
+.noScrollbar::-webkit-scrollbar {
+	display: none;
+}
