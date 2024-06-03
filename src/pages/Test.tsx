@@ -23,7 +23,7 @@ export const Test = () => {
 			</div>
 			{progress}
 			<div ref={pressRef}>press: {isPressed && "true"}</div>
-			<div onClick={close}>close connect to localhost:5002</div>
+			<div onClick={close}>close connect to localhost:5001</div>
 		</div>
 	);
 };

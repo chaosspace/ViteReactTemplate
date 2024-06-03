@@ -1,4 +1,4 @@
-import { Home, NotFound, Test } from "@/pages";
+import { Home, NotFound, Test, Intl } from "@/pages";
 import { createBrowserRouter } from "react-router-dom";
 import { RouteObject } from "react-router-dom";
 
@@ -10,8 +10,8 @@ const routes: RouteObject[] = [
 				path: "/",
 				element: <Home />
 			},
-
-			{ path: "/test", element: <Test /> }
+			{ path: "/test", element: <Test /> },
+			{ path: "/intl", element: <Intl /> }
 		]
 	}
 ];

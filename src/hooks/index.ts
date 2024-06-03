@@ -1,4 +1,5 @@
 export * from "./toast";
+export * from "./intl";
 import {
 	MutableRefObject,
 	useCallback,
