@@ -2,6 +2,7 @@ import { useLongPress, useScrolledIndex, useScrollProgress } from "@/hooks";
 import { useRef, useState } from "react";
 import { TestComp } from "@/components/TestComp";
 import { NestComp } from "@/components/NestComp";
+import { Link } from "react-router-dom";
 
 export const Test = () => {
 	const pressRef = useRef<HTMLDivElement>(null);
@@ -13,6 +14,7 @@ export const Test = () => {
 
 	return (
 		<div>
+			<Link to='/'>to home</Link>
 			<div onClick={() => setIsOpen((pre) => !pre)}>open</div>
 			{isOpen && (
 				<>

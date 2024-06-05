@@ -1,5 +1,5 @@
 import { Home, NotFound, Test, Intl, Progress } from "@/pages";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, createHashRouter } from "react-router-dom";
 import { RouteObject } from "react-router-dom";
 
 const routes: RouteObject[] = [
@@ -21,6 +21,6 @@ const routes: RouteObject[] = [
 	}
 ];
 
-const router = createBrowserRouter(routes);
+const router = createHashRouter(routes);
 
 export default router;
