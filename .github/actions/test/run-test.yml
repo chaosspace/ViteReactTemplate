@@ -1,0 +1,4 @@
+name: Run test action
+
+jobs:
+  run: pnpm test
