@@ -1,9 +1,9 @@
-name: Test workflow
+name: Test Workflow
 
 on:
   push:
-    tags:
-      - "feat/actions"
+    branches:
+      - feat/actions
 
 jobs:
   Run-Test-Job:
