@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: "20"
       - uses: actions/checkout@v4
-      - run: eche "prepare to intall node"
+      - run: echo "prepare to intall node"
       - name: Install pnpm
         run: npm intall -g pnpm
       - run: pnpm -v
