@@ -10,13 +10,10 @@ jobs:
   Run-Test-Job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - run: echo "prepare to install node"
       - name: Install pnpm
         run: npm install -g pnpm
       - run: pnpm -v
       - name: Run Test Script
-        uses: ./.github/actions/run-test
+        run: pnpm test

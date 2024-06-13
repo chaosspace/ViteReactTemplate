@@ -1,5 +1,0 @@
-name: Run Test
-description: action that run pnpm test
-runs:
-  main: run-test.yml
-  using: "node20"
