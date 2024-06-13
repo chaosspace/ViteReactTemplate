@@ -1,0 +1,5 @@
+name: Run Test
+description: action that run pnpm test
+runs:
+  main: main string
+  using: "node20"
