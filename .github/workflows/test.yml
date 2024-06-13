@@ -18,3 +18,5 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
       - run: pnpm -v
+      - name: Run Test Script
+        uses: ./.github/actions/run-test.yml
