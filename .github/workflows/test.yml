@@ -1,0 +1,19 @@
+name: Test workflow
+
+on:
+  push:
+    tags:
+      - "feat/actions"
+
+jobs:
+  run-test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: actions/checkout@v4
+      - run: eche "prepare to intall node"
+      - name: Install pnpm
+        run: npm intall -g pnpm
+      - run: pnpm -v
