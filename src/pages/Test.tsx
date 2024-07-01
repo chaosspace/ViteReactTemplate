@@ -14,7 +14,7 @@ export const Test = () => {
 
 	return (
 		<div>
-			<Link to='/'>to home</Link>
+			<Link to="/">to home</Link>
 			<div onClick={() => setIsOpen((pre) => !pre)}>open</div>
 			{isOpen && (
 				<>
